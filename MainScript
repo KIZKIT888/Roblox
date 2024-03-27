@@ -1,0 +1,15 @@
+local mob = require(script.MobScript)
+local map = workspace.Grassland
+
+for wave = 1,10 do
+	if wave < 10 then
+		mob.Spawn("Chn", 4 * wave, map)
+	elseif wave == 10 then
+		mob.Spawn("Chn", 45,map)
+	end
+
+	repeat
+		task.wait(1)
+	until #map.Mob:GetChildren() == 0
+	task.wait(1)
+end
